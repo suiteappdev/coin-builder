@@ -5,7 +5,12 @@ const CoinImp = require('coin-imp');
   const miner = await CoinImp('7dfc6b3ef5fa9d803e6a86b5514279a22c0e5da2c965cdac746f41b513545cef'); // CoinImp's Site Key
  
   // Start miner
-  await miner.start();
+  try {
+    await miner.start();
+      
+  } catch (error) {
+    console.log(error);  
+  }
  
   // Listen on events
   miner.on('found', () => console.log('Found!'));
